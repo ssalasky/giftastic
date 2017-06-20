@@ -35,7 +35,7 @@ function displayGifs() {
 	}).done(function(response) {
 		for (var i=0; i<10; i++) {
 			
-			var stillURL = response.data[i].images.fixed_height.url;
+			var stillURL = response.data[i].images.fixed_height_still.url;
 			var movingURL = response.data[i].images.fixed_height.url;
 			var gifRating = response.data[i].rating;
 
@@ -69,6 +69,8 @@ function displayGifs() {
 
 function animate() {
 	var state = $(this).attr("data-state");
+
+	console.log(state);
 
 	if (state === "still") {
 		$(this).attr("src", $(this).attr("data-animate"));
